@@ -1,37 +1,39 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import { StatusBar, StyleSheet, useColorScheme, View , Text, TextInput} from 'react-native';
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+  
 
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+    
+      
       <AppContent />
-    </SafeAreaProvider>
+    
   );
 }
 
 function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
+  
 
   return (
     <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
+      <View style={styles.userArea}>
+          <Text style={{ color: "white", fontSize: 30, textAlign: 'center'}}>User id</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="First Name"
+            placeholderTextColor="blue"
+
+          />
+          <Text style={{ color: "white", fontSize: 30, textAlign: 'center'}}>password</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="password"
+            placeholderTextColor="blue"
+
+          />
+            
+      </View>
+      
     </View>
   );
 }
@@ -39,7 +41,31 @@ function AppContent() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'black',
+    justifyContent: 'center',
+    alignItems: 'center',
+    
+
   },
+
+  userArea: {
+    
+    width: '80%',
+    borderRadius: 10,
+    backgroundColor: 'grey',
+    padding: 10,
+    
+  },
+
+  input: {
+    borderColor: 'white',
+    borderWidth: 1,
+    padding: 10,
+    margin: 10,
+    color: 'white',
+  }
+
+  
 });
 
 export default App;
