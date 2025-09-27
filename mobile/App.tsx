@@ -1,4 +1,10 @@
-import { StatusBar, StyleSheet, useColorScheme, View , Text, TextInput} from 'react-native';
+import { StyleSheet, TouchableOpacity , View , Text, TextInput} from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';  
+
+import { NavigationContainer } from '@react-navigation/native';
+import React from 'react';
+ 
+import LoginScreen from './screens/LoginScreen';
 
 function App() {
   
@@ -17,20 +23,32 @@ function AppContent() {
   return (
     <View style={styles.container}>
       <View style={styles.userArea}>
-          <Text style={{ color: "white", fontSize: 30, textAlign: 'center'}}>User id</Text>
+          <Text style={{ color: "black", fontSize: 30, textAlign: 'center'}}>Student ID</Text>
           <TextInput
             style={styles.input}
-            placeholder="First Name"
-            placeholderTextColor="blue"
+            placeholder="Student ID"
+            placeholderTextColor="black"
 
           />
-          <Text style={{ color: "white", fontSize: 30, textAlign: 'center'}}>password</Text>
+          <Text style={{ color: "black", fontSize: 30, textAlign: 'center'}}>password</Text>
           <TextInput
             style={styles.input}
             placeholder="password"
-            placeholderTextColor="blue"
+            placeholderTextColor="black"
 
           />
+
+
+          <TouchableOpacity style={styles.loginButton}>
+            <Text style={{ color: 'white', textAlign: 'center', fontSize: 20 }}>Login</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => navigate("LoginScreen")}>
+            <Text style={styles.link}>Go to Login Page</Text>
+          </TouchableOpacity>
+          
+
+
             
       </View>
       
@@ -52,18 +70,31 @@ const styles = StyleSheet.create({
     
     width: '80%',
     borderRadius: 10,
-    backgroundColor: 'grey',
+    backgroundColor: 'white',
     padding: 10,
     
   },
 
   input: {
-    borderColor: 'white',
+    borderColor: 'black',
     borderWidth: 1,
     padding: 10,
     margin: 10,
-    color: 'white',
-  }
+    color: 'black',
+  },
+
+  loginButton: {
+    backgroundColor: 'black',
+    padding: 10,
+    borderRadius: 5,
+    marginTop: 10 ,
+  },
+  link: {
+    textAlign: 'center',
+    color: "blue",
+    textDecorationLine: "underline",
+    fontSize: 16,
+  },
 
   
 });
